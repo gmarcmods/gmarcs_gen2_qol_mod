@@ -1910,9 +1910,21 @@ return function(mod)
     return ok and generation == 2
   end
 
+  -- A catch made while the party is full is deposited through Gen 1's storage
+  -- module (BattleState:storeCaughtMon -> src.pokemon.Boxes.deposit), which
+  -- stops at twelve boxes. Gold, Silver and Crystal have fourteen, so a catch
+  -- with BOX 1-12 full used to end at "every BOX is full" with 13 and 14
+  -- empty. lib/Gen2Deposit.lua wraps that one call and only for Gen 2.
+  do
+    local okLib, Gen2Deposit = pcall(function()
+      return assert(loadstring(assert(mod:read("lib/Gen2Deposit.lua")),
+        "@Gen3Box/Gen2Deposit"))()
+    end)
+    if okLib and type(Gen2Deposit) == "table" then Gen2Deposit.install(Boxes) end
+  end
+
   -- modkit's MK409 check flags this pair as a hardcoded Gen 1 screen id;
-  -- false positive here, since isGen2(game) below is the real branch.
-  local SCREEN_SUMMARY_GEN1 = "SummaryMenu"
+  -- false positive here, since isGen2(game) below is the real branch.  local SCREEN_SUMMARY_GEN1 = "SummaryMenu"
   local SCREEN_SUMMARY_GEN2 = "Gen2SummaryMenu"
 
   -- Only what is actually honoured below. The vanilla box PC is left in

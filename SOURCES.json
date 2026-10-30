@@ -43,8 +43,8 @@
       "path": "mods/gen1/gen3-box",
       "version": "1.27.4",
       "priority": 100,
-      "commit": "dad8995d5ab7",
-      "digest": "cbdbac0981c8a1ce613cdb59abbf9c865685d07dc04bcd6a2b39a6bb73b04ccb"
+      "commit": "dedafce94ecc",
+      "digest": "7a672c1056c231b97c1224b4ee46cb62ac12b943fa3db1fbda65bb3e2046006a"
     },
     {
       "name": "useful-bag",

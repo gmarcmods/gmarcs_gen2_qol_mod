@@ -122,6 +122,17 @@ for _, key in ipairs(optionKeys) do
   seen[key] = true
 end
 
+-- Gen 3 Box carries the Gen 2 catch-overflow fix: with BOX 1-12 full a caught
+-- mon must still land in 13, not report that every box is full.
+local storage = require('src.pokemon.Boxes')
+local save = { boxes = {}, currentBox = 1 }
+for index = 1, 14 do save.boxes[index] = {} end
+for index = 1, 12 do
+  for slot = 1, 20 do save.boxes[index][slot] = { species = slot } end
+end
+assert(storage.deposit(save, { species = 25 }) == 13,
+  'Gen 2 catch overflow must continue into box 13')
+
 io.write(('features: %d, options: %d, hooks: %d, warnings: %d\n'):format(
   #expected, #optionKeys, #hookNames, #warnings))
 io.write('hooks: ' .. table.concat(hookNames, ', ') .. '\n')
