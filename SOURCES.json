@@ -2,13 +2,13 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "generated_by": "tools/assemble.py",
   "features": [
     {
       "name": "unique-menu-icons",
-      "path": "mods/gen1/unique-menu-icons",
+      "source": "gen1/unique-menu-icons",
       "version": "1.5.0",
       "priority": 0,
       "commit": "c9621f5c88bd",
@@ -16,7 +16,7 @@
     },
     {
       "name": "touch-tools",
-      "path": "mods/shared/touch-tools",
+      "source": "shared/touch-tools",
       "version": "1.2.2",
       "priority": 30,
       "commit": "b08d3bd4629e",
@@ -24,7 +24,7 @@
     },
     {
       "name": "run-mode",
-      "path": "mods/gen2/run-mode",
+      "source": "gen2/run-mode",
       "version": "1.0.1",
       "priority": 40,
       "commit": "6b824f39574d",
@@ -32,7 +32,7 @@
     },
     {
       "name": "quality-of-life",
-      "path": "mods/shared/quality-of-life",
+      "source": "shared/quality-of-life",
       "version": "1.3.3",
       "priority": 90,
       "commit": "bacaa365df1a",
@@ -40,7 +40,7 @@
     },
     {
       "name": "gen3-box",
-      "path": "mods/gen1/gen3-box",
+      "source": "gen1/gen3-box",
       "version": "1.27.4",
       "priority": 100,
       "commit": "dedafce94ecc",
@@ -48,7 +48,7 @@
     },
     {
       "name": "useful-bag",
-      "path": "mods/gen2/useful-bag",
+      "source": "gen2/useful-bag",
       "version": "2.0.4",
       "priority": 100,
       "commit": "203e40557888",
@@ -56,7 +56,7 @@
     },
     {
       "name": "reusable-machines",
-      "path": "mods/gen2/reusable-machines",
+      "source": "gen2/reusable-machines",
       "version": "1.0.2",
       "priority": 130,
       "commit": "ad7a9e7816f9",
@@ -64,7 +64,7 @@
     },
     {
       "name": "trade-evolutions",
-      "path": "mods/gen2/trade-evolutions",
+      "source": "gen2/trade-evolutions",
       "version": "1.0.0",
       "priority": 140,
       "commit": "547e9c4f7336",
@@ -72,7 +72,7 @@
     },
     {
       "name": "happiness",
-      "path": "mods/gen2/happiness",
+      "source": "gen2/happiness",
       "version": "1.0.1",
       "priority": 150,
       "commit": "1ace5f1b46d3",
@@ -80,7 +80,7 @@
     },
     {
       "name": "moveset-plus",
-      "path": "mods/gen2/moveset-plus",
+      "source": "gen2/moveset-plus",
       "version": "1.0.2",
       "priority": 250,
       "commit": "bf3aec7f6f46",
@@ -88,7 +88,7 @@
     },
     {
       "name": "widescreen-menus",
-      "path": "mods/gen2/widescreen-menus",
+      "source": "gen2/widescreen-menus",
       "version": "1.1.2",
       "priority": 300,
       "commit": "d6021f2695c5",
@@ -96,7 +96,7 @@
     },
     {
       "name": "hm-anywhere",
-      "path": "mods/gen2/hm-anywhere",
+      "source": "gen2/hm-anywhere",
       "version": "1.1.2",
       "priority": 610,
       "commit": "24f92edaf819",

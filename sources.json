@@ -2,64 +2,63 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "features": [
     {
       "name": "unique-menu-icons",
-      "path": "mods/gen1/unique-menu-icons",
       "priority": 0,
-      "notes": "gen1+gen2 source; ships Gen 2 party/menu icons"
+      "notes": "gen1+gen2 source; ships Gen 2 party/menu icons",
+      "source": "gen1/unique-menu-icons"
     },
     {
       "name": "touch-tools",
-      "path": "mods/shared/touch-tools",
       "priority": 30,
-      "notes": "gen1+gen2 source; native touch speed and voxel-view buttons"
+      "notes": "gen1+gen2 source; native touch speed and voxel-view buttons",
+      "source": "shared/touch-tools"
     },
     {
       "name": "run-mode",
-      "path": "mods/gen2/run-mode",
-      "priority": 40
+      "priority": 40,
+      "source": "gen2/run-mode"
     },
     {
       "name": "quality-of-life",
-      "path": "mods/shared/quality-of-life",
       "priority": 90,
-      "notes": "gen1+gen2 source; on Gen 2 only DEVICE CLOCK applies"
+      "notes": "gen1+gen2 source; on Gen 2 only DEVICE CLOCK applies",
+      "source": "shared/quality-of-life"
     },
     {
       "name": "gen3-box",
-      "path": "mods/gen1/gen3-box",
       "priority": 100,
-      "notes": "gen1+gen2+gen3 source; Ruby/Sapphire-style PC boxes"
+      "notes": "gen1+gen2+gen3 source; Ruby/Sapphire-style PC boxes",
+      "source": "gen1/gen3-box"
     },
     {
       "name": "useful-bag",
-      "path": "mods/gen2/useful-bag",
-      "priority": 100
+      "priority": 100,
+      "source": "gen2/useful-bag"
     },
     {
       "name": "reusable-machines",
-      "path": "mods/gen2/reusable-machines",
-      "priority": 130
+      "priority": 130,
+      "source": "gen2/reusable-machines"
     },
     {
       "name": "trade-evolutions",
-      "path": "mods/gen2/trade-evolutions",
       "priority": 140,
       "exclude": [
         "dist/xdg"
-      ]
+      ],
+      "source": "gen2/trade-evolutions"
     },
     {
       "name": "happiness",
-      "path": "mods/gen2/happiness",
-      "priority": 150
+      "priority": 150,
+      "source": "gen2/happiness"
     },
     {
       "name": "moveset-plus",
-      "path": "mods/gen2/moveset-plus",
       "priority": 250,
       "patches": [
         {
@@ -67,11 +66,11 @@
           "find": "local function active(game)return game and game.mods and game.mods.exports.MOVESET_PLUS_GEN2~=nil end",
           "replace": "local function active(game)return game and game.mods and game.mods.exports.{product}~=nil end"
         }
-      ]
+      ],
+      "source": "gen2/moveset-plus"
     },
     {
       "name": "widescreen-menus",
-      "path": "mods/gen2/widescreen-menus",
       "priority": 300,
       "patches": [
         {
@@ -79,12 +78,13 @@
           "find": "game.mods.exports.WIDESCREEN_MENUS_GEN2==mod.exports",
           "replace": "game.mods.exports.{product}~=nil"
         }
-      ]
+      ],
+      "source": "gen2/widescreen-menus"
     },
     {
       "name": "hm-anywhere",
-      "path": "mods/gen2/hm-anywhere",
-      "priority": 610
+      "priority": 610,
+      "source": "gen2/hm-anywhere"
     }
   ]
 }

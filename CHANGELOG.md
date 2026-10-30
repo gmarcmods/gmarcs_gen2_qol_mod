@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.1
+
+Documentation and packaging only; the mod behaves exactly as 1.0.0.
+
+- The readme, `sources.json` and `SOURCES.json` no longer describe an author's
+  local folder layout. Rebuilding now takes a `--sources-root` (or
+  `QOL_SOURCES_ROOT`) pointing at the source mod checkouts, and the load test
+  resolves the pack from its own path instead of a fixed one.
+
 ## 1.0.0
 
 First release. One install for Gold, Silver and Crystal:

@@ -1,22 +1,20 @@
 # Pending work
 
-## Gen 1 QoL product
-
-The Gen 1 counterpart will reuse this assembly. Sources already in the
-workspace: `mods/gen1/{hm-anywhere,reusable-machines,run-mode,useful-bag,unique-menu-icons,gen3-box,modern-bag,move-relearn}`
-plus `mods/shared/{touch-tools,quality-of-life}`.
-
-Still to fetch: nothing known — the phone's remaining mods (Pokémon Bank,
-Multiple Save Slots) were deliberately dropped from scope.
-
 ## Options migration
 
-Toggles saved under the old separate mod ids do not carry over: option keys are
-now `<feature>.<key>`. A migration would copy `options.modOptions[<old id>]`
-into the new keys on first load.
+Toggles saved under the standalone mod ids do not carry over: option keys are
+now `<feature>.<key>`. A migration would copy the old per-mod buckets into the
+new keys on first load.
 
 ## On-device verification
 
-The product is load-tested against the real engine modules but has not been
-played on hardware. Installing it means disabling the individual mods it
-replaces first, since duplicates would double-wrap every hook.
+The pack is load-tested against the engine modules and its feature tests pass,
+but it has not been played through on hardware. Installing it means disabling
+the standalone mods it replaces first, since duplicates would double-wrap every
+hook (the manifest conflicts with them, so the launcher refuses the pair).
+
+## Gen 1 pack
+
+A Gen 1 counterpart can reuse this assembly unchanged: same `sources.json`
+shape, same assembler, same proxy. It needs its own `manifest.json` and its own
+source list; the sources it would draw on already exist as separate mods.

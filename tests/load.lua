@@ -1,12 +1,16 @@
--- Loads the assembled product against the real engine modules and checks that
--- every feature installs through the proxy.  Run from gen1recomp/:
---   luajit ../mods/gen2/qol-all/tests/load.lua
+-- Loads the assembled pack against the real engine modules and checks that
+-- every feature installs through the proxy.  Run it from an engine checkout
+-- that has this pack inside its mods directory:
+--   luajit mods/gmarcs_gen2_qol_mod/tests/load.lua
 
 package.path = './?.lua;./?/init.lua;' .. package.path
 love = require('tests.love_stub')
 require('src.core.GameVersion').set('gold')
 
-local root = '../mods/gen2/qol-all'
+-- Resolve the pack from this file's own path, so any checkout location works.
+local script = (arg and arg[0]) or ''
+local root = script:match('^(.*)/tests/[^/]+$')
+assert(root and root ~= '', 'run this test from the pack directory')
 local optionKeys, hookNames, warnings, errors = {}, {}, {}, {}
 
 local function readFile(path)

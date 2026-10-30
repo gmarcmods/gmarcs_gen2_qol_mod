@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -22,8 +23,11 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = ROOT.parents[2]
 CONFIG = ROOT / "sources.json"
+# Source mods are never committed here.  Point this at a directory that holds
+# the twelve checkouts, laid out as sources.json says, with --sources-root or
+# QOL_SOURCES_ROOT, or clone them into ./sources.
+DEFAULT_SOURCES_ROOT = ROOT / "sources"
 
 # Source-only material: tests, docs, git metadata and caches never ship.
 # Mirrors scripts/export-mods.py EXCLUDED_DIRS: anything it strips can never
@@ -114,7 +118,7 @@ def render_main(config: dict, manifest: dict, features: list[dict]) -> str:
             "  { name = %s, source = %s, version = %s },"
             % (
                 lua_string(feature["name"]),
-                lua_string(feature["path"]),
+                lua_string(feature["source"]),
                 lua_string(feature["version"]),
             )
         )
@@ -200,7 +204,7 @@ end
 """
 
 
-def build(dest: Path, config: dict, check_only: bool) -> list[str]:
+def build(dest: Path, config: dict, sources_root: Path) -> list[str]:
     product = config["product"]
     product_id = product["id"]
     manifest_path = ROOT / "manifest.json"
@@ -217,9 +221,11 @@ def build(dest: Path, config: dict, check_only: bool) -> list[str]:
 
     features_out = []
     for feature in config["features"]:
-        source = (WORKSPACE / feature["path"]).resolve()
+        source = (sources_root / feature["source"]).resolve()
         if not source.is_dir():
-            raise SystemExit(f"missing source mod: {feature['path']}")
+            raise SystemExit(
+                f"missing source mod {feature['source']!r} under {sources_root}; "
+                "clone it there, pass --sources-root, or set QOL_SOURCES_ROOT")
         files = collect(source, feature.get("exclude"))
         if not files:
             raise SystemExit(f"source has no shippable files: {feature['path']}")
@@ -248,7 +254,7 @@ def build(dest: Path, config: dict, check_only: bool) -> list[str]:
 
         features_out.append({
             "name": feature["name"],
-            "path": feature["path"],
+            "source": feature["source"],
             "version": version,
             "priority": feature.get("priority"),
             "commit": git_commit(source),
@@ -289,20 +295,27 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true",
                         help="verify the committed tree matches the sources")
+    parser.add_argument("--sources-root", type=Path,
+                        default=None,
+                        help="directory holding the source mods "
+                             "(default: $QOL_SOURCES_ROOT or ./sources)")
     args = parser.parse_args()
     config = load_config()
+    sources_root = (args.sources_root
+                    or Path(os.environ.get("QOL_SOURCES_ROOT", DEFAULT_SOURCES_ROOT))
+                    ).resolve()
 
     if not args.check:
         shutil.rmtree(ROOT / "features", ignore_errors=True)
-        names = build(ROOT, config, False)
-        print(f"assembled {len(names)} features into {ROOT.relative_to(WORKSPACE)}")
+        names = build(ROOT, config, sources_root)
+        print(f"assembled {len(names)} features from {sources_root}")
         for name in names:
             print(f"  - {name}")
         return 0
 
     with tempfile.TemporaryDirectory() as tmp:
         staging = Path(tmp)
-        build(staging, config, True)
+        build(staging, config, sources_root)
         expected = tree_files(staging)
         actual = tree_files(ROOT)
         stale = False
