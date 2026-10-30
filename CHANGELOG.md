@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.1
+
+- **Menu icons, and every other feature's art, now load.** The per-feature
+  proxy scoped `mod:read` but not `mod.assets`, and the engine's
+  `assets:path`/`assets:image` close over the real mod root. So each feature
+  looked for its art at the pack root instead of `features/<name>/` and drew
+  nothing, silently. `mod.assets` is now scoped like `read`.
+- Added `tests/assets.lua`: loads the pack and asserts every registered icon
+  points at a file inside its own feature folder.
+
 ## 1.1.0
 
 - **Move Relearn** added: relearn any move a Pokémon could have learned, from

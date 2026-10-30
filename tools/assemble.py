@@ -157,6 +157,23 @@ local function featureApi(mod, feature, combined)
   -- mod.options:define REPLACES the mod's schema, so every feature after the
   -- first would wipe the previous feature's toggles off the options screen.
   -- Keep one accumulated table and hand the engine the same object every time.
+  -- mod.assets:path/image close over the real mod root, so without this every
+  -- feature would look for its art in features/<name>/ nowhere: the pack root.
+  local assets = setmetatable({{}}, {{ __index = mod.assets }})
+  function assets:path(relative)
+    return mod.assets:path(root .. "/" .. tostring(relative))
+  end
+  function assets:image(relative)
+    return mod.assets:image(root .. "/" .. tostring(relative))
+  end
+  function assets:list(relative)
+    if relative == nil then return mod.assets:list(root) end
+    return mod.assets:list(root .. "/" .. tostring(relative))
+  end
+  function assets:info(relative)
+    return mod.assets:info(root .. "/" .. tostring(relative))
+  end
+
   local options = {{
     define = function(_, schema)
       for _, row in ipairs(schema) do
@@ -176,6 +193,7 @@ local function featureApi(mod, feature, combined)
     __index = function(_, key)
       if key == "path" then return mod.path .. "/" .. root end
       if key == "options" then return options end
+      if key == "assets" then return assets end
       if key == "exports" then return state.exports end
       return mod[key]
     end,
