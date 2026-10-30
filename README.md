@@ -17,6 +17,7 @@ for Gold, Silver and Crystal.
 - **Moveset Plus** — compare the five moves a Pokémon can learn.
 - **Widescreen Menus** — menus that use the whole screen, in any orientation.
 - **HM Anywhere** — use owned HMs and field TMs without teaching them.
+- **Move Relearn** — relearn any move a Pokémon could have learned.
 
 Everything is optional; each feature has its own toggle in OPTIONS.
 
@@ -51,6 +52,7 @@ as one pack. Thank you:
 - **Unique Menu Icons** — menyas
 - **Gen 3 Box** — MadeinTaly
 - **Quality of Life** — Deftones565
+- **Move Relearn** — ShaneMcGovernIE
 
 The Gen 2 versions of Reusable Machines, HM Anywhere, Happiness, Moveset Plus,
 Widescreen Menus, Trade Evolutions and Touch Tools are mine. If your work is

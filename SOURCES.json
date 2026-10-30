@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.0.5"
+    "version": "1.1.0"
   },
   "generated_by": "tools/assemble.py",
   "features": [
@@ -85,6 +85,14 @@
       "priority": 250,
       "commit": "bf3aec7f6f46",
       "digest": "39dab77f590b82950126547c7a2acfaad0a9f9cec0ba3def76fa9ffd004fe0c8"
+    },
+    {
+      "name": "move-relearn",
+      "source": "gen1/move-relearn",
+      "version": "1.7.0",
+      "priority": 260,
+      "commit": "ca5ff91be2ee",
+      "digest": "02bc8f1d40014fdfecc97c1939131faf21d6757002e7cbae149ff433e065496f"
     },
     {
       "name": "widescreen-menus",

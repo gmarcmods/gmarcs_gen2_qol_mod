@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.0.5"
+    "version": "1.1.0"
   },
   "features": [
     {
@@ -68,6 +68,12 @@
         }
       ],
       "source": "gen2/moveset-plus"
+    },
+    {
+      "name": "move-relearn",
+      "source": "gen1/move-relearn",
+      "priority": 260,
+      "notes": "gen1+gen2+gen3 source; loads after Moveset Plus, which owns the same screens"
     },
     {
       "name": "widescreen-menus",

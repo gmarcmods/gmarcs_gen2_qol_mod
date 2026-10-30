@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+- **Move Relearn** added: relearn any move a Pokémon could have learned, from
+  the party menu. It loads after Moveset Plus, which owns the same screens.
+- The manifest now names this repository (`github`) so the launcher can check
+  for and install updates, and releases ship the ZIP as
+  `gmarcs_gen2_qol_mod-<version>.zip`, which is the name the updater prefers.
+
 ## 1.0.5
 
 - **Every feature's toggles now reach the options screen.** The engine's
