@@ -1,7 +1,7 @@
 {
   "id": "gmarcs_gen2_qol_mod",
   "name": "Gmarc's Gen 2 QoL Mod",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "api": 2,
   "entry": "main.lua",
   "profile": "content",

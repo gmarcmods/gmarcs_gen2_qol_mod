@@ -1,106 +1,62 @@
 # Gmarc's Gen 2 QoL Mod
 
-One installable mod for Gold, Silver and Crystal that carries twelve quality of
-life features which otherwise ship separately.
+Twelve quality of life mods I used on Gen 1, ported and packed into one install
+for Gold, Silver and Crystal.
 
-Product id `gmarcs_gen2_qol_mod`.
+## Features
+
+- **Unique Menu Icons** — party and menu icons for all 251 Pokémon.
+- **Touch Tools** — on-screen speed, save, load, colour, zoom and voxel buttons.
+- **Run Mode** — hold or toggle B to run.
+- **Quality of Life** — in-game time from the device clock.
+- **Gen 3 Box** — Ruby/Sapphire-style PC boxes.
+- **Useful Bag** — bigger pockets and a sortable, fullscreen bag.
+- **Reusable Machines** — TMs are reusable and HM moves can be forgotten.
+- **Trade Evolutions** — trade evolutions become level-up evolutions.
+- **Happiness** — set a party Pokémon's happiness from Bill's PC.
+- **Moveset Plus** — compare the five moves a Pokémon can learn.
+- **Widescreen Menus** — menus that use the whole screen, in any orientation.
+- **HM Anywhere** — use owned HMs and field TMs without teaching them.
+
+Everything is optional; each feature has its own toggle in OPTIONS.
+
+## Trade evolutions
+
+Pokémon that could only evolve by trading now evolve by levelling up. The
+level is configurable (`TRADE EVO LEVEL`, default 37).
+
+| Pokémon | Evolves into | How |
+| --- | --- | --- |
+| Kadabra | Alakazam | Level 37 |
+| Machoke | Machamp | Level 37 |
+| Graveler | Golem | Level 37 |
+| Haunter | Gengar | Level 37 |
+| Slowpoke | Slowking | Level up holding King's Rock |
+| Poliwhirl | Politoed | Level up holding King's Rock |
+| Onix | Steelix | Level up holding Metal Coat |
+| Scyther | Scizor | Level up holding Metal Coat |
+| Seadra | Kingdra | Level up holding Dragon Scale |
+| Porygon | Porygon2 | Level up holding Up-Grade |
+
+The held-item evolutions accept any level by default (`HELD ITEM EVO LEVEL`).
+The item is only consumed when the evolution happens.
+
+## Credits
+
+These are Gen 1 mods by other people, which I ported to Gen 2 and now maintain
+as one pack. Thank you:
+
+- **Run Mode** — masterwebx
+- **Useful Bag** — ShaneMcGovernIE
+- **Unique Menu Icons** — menyas
+- **Gen 3 Box** — MadeinTaly
+- **Quality of Life** — Deftones565
+
+The Gen 2 versions of Reusable Machines, HM Anywhere, Happiness, Moveset Plus,
+Widescreen Menus, Trade Evolutions and Touch Tools are mine. If your work is
+here without the credit you want, tell me and I'll fix it.
 
 ## Install
 
-Import the ZIP from the mod list, enable it for Gold, Silver and Crystal, then
-restart. Disable the standalone mods it replaces first: the manifest conflicts
-with all twelve, so the launcher refuses to run two copies of the same feature.
-
-## Contents
-
-| Feature | Version | Order |
-| --- | --- | --- |
-| Unique Menu Icons | 1.5.0 | 0 |
-| Touch Tools | 1.2.2 | 30 |
-| Run Mode | 1.0.1 | 40 |
-| Quality of Life | 1.3.3 | 90 |
-| Gen 3 Box | 1.27.4 | 100 |
-| Useful Bag | 2.0.4 | 100 |
-| Reusable Machines | 1.0.2 | 130 |
-| Trade Evolutions | 1.0.0 | 140 |
-| Happiness | 1.0.1 | 150 |
-| Moveset Plus | 1.0.2 | 250 |
-| Widescreen Menus | 1.1.2 | 300 |
-| HM Anywhere | 1.1.2 | 610 |
-
-Order is the ascending priority the standalone mods used, preserved inside the
-pack. The pack itself loads at priority 300.
-
-## How this repository is built
-
-`features/`, `main.lua` and `SOURCES.json` are generated from `sources.json` by
-`tools/assemble.py`, and are committed: the files that ship are readable,
-diffable and blameable here.
-
-`SOURCES.json` records each feature's source name, version, commit and a
-content digest, so any build is traceable.
-
-Rebuilding needs the twelve source mods checked out locally. They are never
-committed here:
-
-```sh
-# sources.json says where each one lives inside the sources root
-export QOL_SOURCES_ROOT=/path/to/checkouts
-python3 tools/assemble.py            # regenerate features/ + main.lua
-python3 tools/assemble.py --check    # fail if the committed tree is stale
-```
-
-`--check` regenerates into a temporary tree and compares it file by file, so the
-committed copy cannot drift from the sources.
-
-## How a feature is isolated
-
-Each feature runs against a per-feature `mod` proxy generated in `main.lua`:
-
-- `mod.path` and `mod:read` resolve inside `features/<name>/`
-- option keys become `"<feature>.<key>"`, so twelve schemas coexist in one
-  options screen without collisions
-- `mod.exports` is captured per feature and merged afterwards, because several
-  sources replace the table wholesale
-
-## Declared patches
-
-Two features gate themselves on their own export id
-(`game.mods.exports.MOVESET_PLUS_GEN2`, `WIDESCREEN_MENUS_GEN2`), which does not
-exist under a merged id; without a patch they would load and silently do
-nothing. Those call sites are patched to the product id. The patches live in
-`sources.json` and are applied only when the exact source text is present
-exactly once, so an upstream change fails the assembly instead of producing a
-quiet regression.
-
-## Verification
-
-The load test runs the generated pack against the game engine's modules and
-checks that every feature installs, that option keys stay namespaced, and that
-the Gen 2 catch overflow reaches box 13. Run it from an engine checkout that has
-this pack inside its mods directory:
-
-```sh
-luajit mods/gmarcs_gen2_qol_mod/tests/load.lua
-```
-
-It reports the feature, option and hook counts and prints `QoL product load PASS`.
-
-## Notes
-
-- **Gen 3 Box** declares Gen 1, 2 and 3 support and brings its own
-  per-generation branch. It also carries the catch fix: a ball is thrown into
-  the next box with room when the party is full and the box the game looks at
-  is full, so the throw is refused only when every box really is full.
-- **Quality of Life** contributes only `DEVICE CLOCK` here; its Pack and EXP bar
-  are Gen 1 replacements and stay inert on Gen 2.
-
-## Known limitations
-
-- Verified by the load test and by targeted feature tests; not yet played
-  through on hardware.
-- Toggles saved under the standalone mod ids do not carry over, because option
-  keys are namespaced to the pack. Set them once after switching.
-- The pack ships only what `scripts/export-mods.py` packages. Screenshots and
-  other per-source material stay in the source repositories.
-- No ROMs, saves or imported asset packs are ever included.
+Import the ZIP in the mod list, enable it for Gold, Silver or Crystal, and
+restart. Disable the separate mods it replaces — they can't run together.

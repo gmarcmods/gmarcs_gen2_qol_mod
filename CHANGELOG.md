@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.3
+
+Documentation only.
+
+- The readme now lists the features, the trade-evolution table with levels and
+  the original authors, instead of build notes.
+
 ## 1.0.2
 
 - **A Poké Ball is no longer refused when the party is full and the current box
