@@ -39,6 +39,14 @@
       "digest": "559e2177f803ba16ad0f5e3b7461e0c051e98c1f9c35324f0ce458e5834fa6b3"
     },
     {
+      "name": "gen3-box",
+      "path": "mods/gen1/gen3-box",
+      "version": "1.27.4",
+      "priority": 100,
+      "commit": "dad8995d5ab7",
+      "digest": "cbdbac0981c8a1ce613cdb59abbf9c865685d07dc04bcd6a2b39a6bb73b04ccb"
+    },
+    {
       "name": "useful-bag",
       "path": "mods/gen2/useful-bag",
       "version": "2.0.4",

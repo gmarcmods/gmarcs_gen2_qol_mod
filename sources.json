@@ -29,6 +29,12 @@
       "notes": "gen1+gen2 source; on Gen 2 only DEVICE CLOCK applies"
     },
     {
+      "name": "gen3-box",
+      "path": "mods/gen1/gen3-box",
+      "priority": 100,
+      "notes": "gen1+gen2+gen3 source; Ruby/Sapphire-style PC boxes"
+    },
+    {
       "name": "useful-bag",
       "path": "mods/gen2/useful-bag",
       "priority": 100

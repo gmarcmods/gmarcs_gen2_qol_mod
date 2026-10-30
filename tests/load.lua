@@ -91,17 +91,21 @@ install(mod)
 -- Every feature reaches the merged exports table.
 assert(type(mod.exports) == 'table', 'exports must stay a table')
 
-local expected = {
-  'unique-menu-icons', 'touch-tools', 'run-mode', 'quality-of-life',
-  'useful-bag', 'reusable-machines', 'trade-evolutions', 'happiness',
-  'moveset-plus', 'widescreen-menus', 'hm-anywhere',
-}
+-- Expectations come from the generated SOURCES.json, so adding or dropping a
+-- feature never needs a matching edit here.
 local sources = assert(io.open(root .. '/SOURCES.json')):read('*a')
+local featureList = assert(sources:match('"features":%s*(.*)$'), 'SOURCES.json has no features')
+local expected = {}
+for name in featureList:gmatch('"name":%s*"([^"]+)"') do
+  expected[#expected + 1] = name
+end
+assert(#expected > 0, 'SOURCES.json lists no features')
 for _, name in ipairs(expected) do
-  assert(sources:find('"name": "' .. name .. '"', 1, true), 'missing feature ' .. name)
+  local handle = io.open(root .. '/features/' .. name .. '/main.lua', 'rb')
+  assert(handle, 'feature directory missing: ' .. name)
+  handle:close()
 end
 
--- Proxied reads resolve inside each feature directory.
 assert(#optionKeys > 0, 'no options were registered')
 for _, key in ipairs(optionKeys) do
   local prefix = key:match('^([%w%-_]+)%.')

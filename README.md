@@ -32,6 +32,7 @@ cannot drift silently.
 | Touch Tools | `mods/shared/touch-tools` | 1.2.2 | 30 |
 | Run Mode | `mods/gen2/run-mode` | 1.0.1 | 40 |
 | Quality of Life | `mods/shared/quality-of-life` | 1.3.3 | 90 |
+| Gen 3 Box | `mods/gen1/gen3-box` | 1.27.4 | 100 |
 | Useful Bag | `mods/gen2/useful-bag` | 2.0.4 | 100 |
 | Reusable Machines | `mods/gen2/reusable-machines` | 1.0.2 | 130 |
 | Trade Evolutions | `mods/gen2/trade-evolutions` | 1.0.0 | 140 |
@@ -64,11 +65,11 @@ product id. The patches are declared in `sources.json` and applied only if the
 exact source text is still present exactly once; an upstream change fails the
 assembly instead of producing a quiet regression.
 
-## Not included
+## Notes on two sources
 
-- **Gen 3 Box** (`gen3_box`, MadeinTaly/gen1recomp-gen3-boxes) is a Gen 1 mod:
-  it is built on `src.pokemon.Boxes` and Gen 1's twelve boxes of twenty. It
-  needs a Gen 2 port before it can live here; see [docs/pending.md](docs/pending.md).
+- **Gen 3 Box** declares `games: ["gen1","gen2","gen3"]` at 1.27.4 and brings its
+  own per-generation branch, so it runs here unchanged. The 1.3.0 release kept
+  on the phone predates that support.
 - Quality of Life contributes only `DEVICE CLOCK` on Gen 2; its Pack and EXP
   bar are Gen 1 replacements and stay inert, by design.
 

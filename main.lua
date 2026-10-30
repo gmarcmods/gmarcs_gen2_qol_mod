@@ -19,6 +19,7 @@ local FEATURES = {
   { name = "touch-tools", source = "mods/shared/touch-tools", version = "1.2.2" },
   { name = "run-mode", source = "mods/gen2/run-mode", version = "1.0.1" },
   { name = "quality-of-life", source = "mods/shared/quality-of-life", version = "1.3.3" },
+  { name = "gen3-box", source = "mods/gen1/gen3-box", version = "1.27.4" },
   { name = "useful-bag", source = "mods/gen2/useful-bag", version = "2.0.4" },
   { name = "reusable-machines", source = "mods/gen2/reusable-machines", version = "1.0.2" },
   { name = "trade-evolutions", source = "mods/gen2/trade-evolutions", version = "1.0.0" },
