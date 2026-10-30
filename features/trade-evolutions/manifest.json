@@ -1,0 +1,18 @@
+{
+  "id": "TRADE_EVOLUTIONS_GEN2",
+  "name": "Trade Evolutions by Level (Gen 2)",
+  "version": "1.0.0",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "content",
+  "category": "GAMEPLAY",
+  "games": ["gen2"],
+  "game_version": "0.0.0-dev || >=0.1.37 <2.0.0",
+  "priority": 140,
+  "permissions": [],
+  "dependencies": [],
+  "optional_dependencies": [],
+  "conflicts": [],
+  "affects_link": true,
+  "description": "Trade-only evolutions become level-up evolutions (default level 37). Trade-with-item evolutions happen on level-up while holding the required item, which is consumed after success. Thresholds are adjustable in mod options. Supports Gold, Silver and Crystal."
+}

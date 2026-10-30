@@ -1,0 +1,23 @@
+{
+  "id": "WIDESCREEN_MENUS_GEN2",
+  "name": "Widescreen Menus (Gen 2)",
+  "version": "1.1.2",
+  "api": 2,
+  "entry": "main.lua",
+  "games": [
+    "gen2"
+  ],
+  "profile": "content",
+  "category": "QOL",
+  "game_version": ">=0.0.0-0 <2.0.0",
+  "priority": 300,
+  "permissions": [
+    "engine_internals"
+  ],
+  "optional_dependencies": [
+    "MOVESET_PLUS_GEN2",
+    "useful_bag_gen2",
+    "GEN2_ES"
+  ],
+  "description": "Responsive native Pokemon, Pokedex, PC and system menus: landscape side panels, portrait stacking, original pixel fonts and controls. Cooperates with Useful Bag and Moveset Plus."
+}

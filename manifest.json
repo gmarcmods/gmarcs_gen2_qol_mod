@@ -1,0 +1,22 @@
+{
+  "id": "gmarcs_gen2_qol_mod",
+  "name": "Gmarc's Gen 2 QoL Mod",
+  "version": "0.1.0",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "content",
+  "category": "QOL",
+  "game_version": ">=0.1.37 <2.0.0",
+  "priority": 300,
+  "permissions": [
+    "engine_internals"
+  ],
+  "dependencies": [],
+  "optional_dependencies": [],
+  "conflicts": [],
+  "affects_link": true,
+  "description": "One install for Gold/Silver/Crystal: run mode, useful bag, reusable machines, trade evolutions, happiness, moveset plus, widescreen menus, HM anywhere, touch tools, unique menu icons and the QoL device clock.",
+  "games": [
+    "gen2"
+  ]
+}

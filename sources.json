@@ -1,0 +1,84 @@
+{
+  "product": {
+    "id": "gmarcs_gen2_qol_mod",
+    "name": "Gmarc's Gen 2 QoL Mod",
+    "version": "0.1.0"
+  },
+  "features": [
+    {
+      "name": "unique-menu-icons",
+      "path": "mods/gen1/unique-menu-icons",
+      "priority": 0,
+      "notes": "gen1+gen2 source; ships Gen 2 party/menu icons"
+    },
+    {
+      "name": "touch-tools",
+      "path": "mods/shared/touch-tools",
+      "priority": 30,
+      "notes": "gen1+gen2 source; native touch speed and voxel-view buttons"
+    },
+    {
+      "name": "run-mode",
+      "path": "mods/gen2/run-mode",
+      "priority": 40
+    },
+    {
+      "name": "quality-of-life",
+      "path": "mods/shared/quality-of-life",
+      "priority": 90,
+      "notes": "gen1+gen2 source; on Gen 2 only DEVICE CLOCK applies"
+    },
+    {
+      "name": "useful-bag",
+      "path": "mods/gen2/useful-bag",
+      "priority": 100
+    },
+    {
+      "name": "reusable-machines",
+      "path": "mods/gen2/reusable-machines",
+      "priority": 130
+    },
+    {
+      "name": "trade-evolutions",
+      "path": "mods/gen2/trade-evolutions",
+      "priority": 140,
+      "exclude": [
+        "dist/xdg"
+      ]
+    },
+    {
+      "name": "happiness",
+      "path": "mods/gen2/happiness",
+      "priority": 150
+    },
+    {
+      "name": "moveset-plus",
+      "path": "mods/gen2/moveset-plus",
+      "priority": 250,
+      "patches": [
+        {
+          "file": "main.lua",
+          "find": "local function active(game)return game and game.mods and game.mods.exports.MOVESET_PLUS_GEN2~=nil end",
+          "replace": "local function active(game)return game and game.mods and game.mods.exports.{product}~=nil end"
+        }
+      ]
+    },
+    {
+      "name": "widescreen-menus",
+      "path": "mods/gen2/widescreen-menus",
+      "priority": 300,
+      "patches": [
+        {
+          "file": "main.lua",
+          "find": "game.mods.exports.WIDESCREEN_MENUS_GEN2==mod.exports",
+          "replace": "game.mods.exports.{product}~=nil"
+        }
+      ]
+    },
+    {
+      "name": "hm-anywhere",
+      "path": "mods/gen2/hm-anywhere",
+      "priority": 610
+    }
+  ]
+}
