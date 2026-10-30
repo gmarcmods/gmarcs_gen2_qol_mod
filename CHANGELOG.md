@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.5
+
+- **Every feature's toggles now reach the options screen.** The engine's
+  `options:define` replaces a mod's schema, so each feature was overwriting the
+  one before it and only the last feature's rows survived. The generated proxy
+  now accumulates one schema for the whole pack (21 rows across the seven
+  features that have toggles).
+
 ## 1.0.4
 
 Packaging only.

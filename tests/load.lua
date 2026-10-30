@@ -43,6 +43,10 @@ local mod = {
   options = {
     define = function(_, schema)
       assert(type(schema) == 'table', 'schema must be a table')
+      -- The engine stores the table it is handed and replaces the old one, so
+      -- a pack that defines per feature must accumulate or lose every row but
+      -- the last. Record what the engine would end up holding.
+      optionKeys = {}
       for _, row in ipairs(schema) do
         assert(type(row.key) == 'string' and row.key ~= '', 'row needs a key')
         optionKeys[#optionKeys + 1] = row.key
@@ -110,7 +114,7 @@ for _, name in ipairs(expected) do
   handle:close()
 end
 
-assert(#optionKeys > 0, 'no options were registered')
+assert(#optionKeys > 20, 'the options schema must hold every feature row, not just the last one: ' .. #optionKeys)
 for _, key in ipairs(optionKeys) do
   local prefix = key:match('^([%w%-_]+)%.')
   assert(prefix, 'option key is not namespaced: ' .. key)

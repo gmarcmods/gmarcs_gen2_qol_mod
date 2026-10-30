@@ -146,7 +146,7 @@ local FEATURES = {{
 {table}
 }}
 
-local function featureApi(mod, feature)
+local function featureApi(mod, feature, combined)
   local root = "features/" .. feature.name
   local state = {{ exports = {{}} }}
 
@@ -154,16 +154,18 @@ local function featureApi(mod, feature)
     return feature.name .. "." .. tostring(key)
   end
 
+  -- mod.options:define REPLACES the mod's schema, so every feature after the
+  -- first would wipe the previous feature's toggles off the options screen.
+  -- Keep one accumulated table and hand the engine the same object every time.
   local options = {{
     define = function(_, schema)
-      local rows = {{}}
-      for index, row in ipairs(schema) do
+      for _, row in ipairs(schema) do
         local copy = {{}}
         for key, value in pairs(row) do copy[key] = value end
         copy.key = prefixed(row.key)
-        rows[index] = copy
+        combined[#combined + 1] = copy
       end
-      return mod.options:define(rows)
+      return mod.options:define(combined)
     end,
     get = function(_, key)
       return mod.options:get(prefixed(key))
@@ -188,11 +190,14 @@ end
 
 return function(mod)
   local merged = mod.exports
+  -- Shared across every feature: define() replaces the engine's schema, so the
+  -- accumulated table is what keeps all twelve option screens alive.
+  local combined = {{}}
   for _, feature in ipairs(FEATURES) do
     local source = assert(mod:read("features/" .. feature.name .. "/main.lua"),
       "missing feature entry: " .. feature.name)
     local chunk = assert(loadstring(source, "@" .. PRODUCT .. "/" .. feature.name))
-    local proxy, state = featureApi(mod, feature)
+    local proxy, state = featureApi(mod, feature, combined)
     -- Sources use one of two entry styles: `local mod = ...` executed at load
     -- time, or `return function(mod) ... end`.  Both get the same proxy.
     local install = chunk(proxy)
