@@ -126,6 +126,11 @@ for _, key in ipairs(optionKeys) do
   seen[key] = true
 end
 
+-- Gen 3 Box also opens the ball gate: with the party full and the current box
+-- full, the throw is handed to the next box instead of being refused.
+local BattleState = require('src.ui.gen2.BattleState')
+assert(BattleState.__gen3BoxBallGate == true, 'the Gen 2 ball gate was not installed')
+
 -- Gen 3 Box carries the Gen 2 catch-overflow fix: with BOX 1-12 full a caught
 -- mon must still land in 13, not report that every box is full.
 local storage = require('src.pokemon.Boxes')

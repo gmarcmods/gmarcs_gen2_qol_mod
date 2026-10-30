@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.2
+
+- **A Poké Ball is no longer refused when the party is full and the current box
+  is full while another box has room.** Gen 3 Box hands the throw to the next
+  box with room; the "BOX is full" message now appears only when every box is
+  full, which is the one case the cart's rule is honest about. This is the
+  pre-throw gate in `BattleState:useItem`, not the deposit.
+
 ## 1.0.1
 
 Documentation and packaging only; the mod behaves exactly as 1.0.0.

@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "generated_by": "tools/assemble.py",
   "features": [
@@ -43,8 +43,8 @@
       "source": "gen1/gen3-box",
       "version": "1.27.4",
       "priority": 100,
-      "commit": "dedafce94ecc",
-      "digest": "7a672c1056c231b97c1224b4ee46cb62ac12b943fa3db1fbda65bb3e2046006a"
+      "commit": "8a55ab66e1a2",
+      "digest": "03548e99017179594ae3dc595e378c6c0e5f284185488445b3f28dfb848a9436"
     },
     {
       "name": "useful-bag",

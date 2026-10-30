@@ -1920,7 +1920,23 @@ return function(mod)
       return assert(loadstring(assert(mod:read("lib/Gen2Deposit.lua")),
         "@Gen3Box/Gen2Deposit"))()
     end)
-    if okLib and type(Gen2Deposit) == "table" then Gen2Deposit.install(Boxes) end
+    if okLib and type(Gen2Deposit) == "table" then
+      Gen2Deposit.installDeposit(Boxes)
+      -- The ball gate refuses the throw when the party is full and the box it
+      -- looks at is full, even with thirteen other boxes empty. Hand the throw
+      -- to the next box with room instead.
+      -- Gen 2 only: requiring the Gen 2 battle state during a Gen 1 boot
+      -- registers Gen 2 screens into the shared registry.
+      local okGen, generation = pcall(function()
+        return require("src.core.GameVersion").generation()
+      end)
+      if okGen and generation == 2 then
+        local okBattle, BattleState = pcall(require, "src.ui.gen2.BattleState")
+        if okBattle and type(BattleState) == "table" then
+          Gen2Deposit.installBallGate(BattleState)
+        end
+      end
+    end
   end
 
   -- modkit's MK409 check flags this pair as a hardcoded Gen 1 screen id;

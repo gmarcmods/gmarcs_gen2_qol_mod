@@ -89,8 +89,9 @@ It reports the feature, option and hook counts and prints `QoL product load PASS
 ## Notes
 
 - **Gen 3 Box** declares Gen 1, 2 and 3 support and brings its own
-  per-generation branch. It also carries the fix that lets a caught mon continue
-  into boxes 13 and 14 on Gold/Silver/Crystal when BOX 1-12 are full.
+  per-generation branch. It also carries the catch fix: a ball is thrown into
+  the next box with room when the party is full and the box the game looks at
+  is full, so the throw is refused only when every box really is full.
 - **Quality of Life** contributes only `DEVICE CLOCK` here; its Pack and EXP bar
   are Gen 1 replacements and stay inert on Gen 2.
 
