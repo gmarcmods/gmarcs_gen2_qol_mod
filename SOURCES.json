@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "generated_by": "tools/assemble.py",
   "features": [
@@ -12,7 +12,7 @@
       "version": "1.5.0",
       "priority": 0,
       "commit": "c9621f5c88bd",
-      "digest": "23eb7011c6f48de96e0a9999e55ab67d7c056ba1c4989fb64e422273d8e2bd7b"
+      "digest": "4e1252e56c9a5463e9e66432343949c615bce9f2e56a85b97d4a1874d8ad552f"
     },
     {
       "name": "touch-tools",
@@ -20,7 +20,7 @@
       "version": "1.2.2",
       "priority": 30,
       "commit": "b08d3bd4629e",
-      "digest": "6e20219f7d16c24bf81176024ab924918f2da7e94459733fe574d61e69c76e1c"
+      "digest": "f661114bd1dabab76bd9e78cc61efd79ea2d4eb8c8b1f646192c1032c0494339"
     },
     {
       "name": "run-mode",
@@ -28,7 +28,7 @@
       "version": "1.0.1",
       "priority": 40,
       "commit": "6b824f39574d",
-      "digest": "e32829084862074c9443d1fdf4dc5cab6a63a60072bec0fcd3bd11a90c8e8baf"
+      "digest": "7514b69ec0d91cfb00c7e125dff5c10b9f36df98ef02873f11f4c4aaf259219f"
     },
     {
       "name": "quality-of-life",
@@ -36,7 +36,7 @@
       "version": "1.3.3",
       "priority": 90,
       "commit": "bacaa365df1a",
-      "digest": "559e2177f803ba16ad0f5e3b7461e0c051e98c1f9c35324f0ce458e5834fa6b3"
+      "digest": "167957b0db3e94456166eefb6f29abbbafa0e8788753276e032a04710eb039ea"
     },
     {
       "name": "gen3-box",
@@ -44,7 +44,7 @@
       "version": "1.27.4",
       "priority": 100,
       "commit": "8a55ab66e1a2",
-      "digest": "03548e99017179594ae3dc595e378c6c0e5f284185488445b3f28dfb848a9436"
+      "digest": "ae572ee7ef6035a3986b37fda4928e43895dca247489e9eb34b046237f5dba22"
     },
     {
       "name": "useful-bag",
@@ -52,7 +52,7 @@
       "version": "2.0.4",
       "priority": 100,
       "commit": "203e40557888",
-      "digest": "a6a10f8186c6c68761cf96ee568f77d246417b85bc8df5ff35be64c89d69eecf"
+      "digest": "f00ce500f19036d9a060ef6cfc93781e904e77ec7fedac5ead9c6996e148826e"
     },
     {
       "name": "reusable-machines",
@@ -60,7 +60,7 @@
       "version": "1.0.2",
       "priority": 130,
       "commit": "ad7a9e7816f9",
-      "digest": "5cf2ef32ae840f87a0b6cebaf9b60fb5b909c4935cfaf16167d282734c416547"
+      "digest": "31db78e5da8e4dee69ae41764032a54841d5af7f71ce8a76d5b213ea695dce7c"
     },
     {
       "name": "trade-evolutions",
@@ -68,7 +68,7 @@
       "version": "1.0.0",
       "priority": 140,
       "commit": "547e9c4f7336",
-      "digest": "5a7d2ce30302862c2563f52ecdcd24a323f322f5ec27432bbe2494829b0d2bf1"
+      "digest": "335c3a6051ee8e000fe9adeebc6d57d1049661d31a095d9392d0416e58626018"
     },
     {
       "name": "happiness",
@@ -76,7 +76,7 @@
       "version": "1.0.1",
       "priority": 150,
       "commit": "1ace5f1b46d3",
-      "digest": "6378b1cd5cc075b0e18b379c847584b5afd2667fbb2259b1388451a80941575b"
+      "digest": "4e7288ac14319fe6fbf117991118e46abd75d9c4ff3af33c5d71ac99047fcf6e"
     },
     {
       "name": "moveset-plus",
@@ -84,7 +84,7 @@
       "version": "1.0.2",
       "priority": 250,
       "commit": "bf3aec7f6f46",
-      "digest": "321efa20e5571b979ddf5176568c7edb41c458bec56f24a658bb797726e3118e"
+      "digest": "39dab77f590b82950126547c7a2acfaad0a9f9cec0ba3def76fa9ffd004fe0c8"
     },
     {
       "name": "widescreen-menus",
@@ -92,7 +92,7 @@
       "version": "1.1.2",
       "priority": 300,
       "commit": "d6021f2695c5",
-      "digest": "a0874015fdb9366cbebc7c72f018285b2844fce61d4b086c3a3e068e1448f42e"
+      "digest": "a45deeffcae365fb690b72c6e8d3eaa5664ad711ecc6e421ec96bf73093d9036"
     },
     {
       "name": "hm-anywhere",
@@ -100,7 +100,7 @@
       "version": "1.1.2",
       "priority": 610,
       "commit": "24f92edaf819",
-      "digest": "498114483eb7b2ddea72cc8791d75d6ae04e8c7817c6d0c603b7d18996edce6c"
+      "digest": "fa94166ee72cecb7d8c2de27b2203702532ed7b6065e20fc9f51e6554efb6ead"
     }
   ]
 }

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.4
+
+Packaging only.
+
+- Vendored folders no longer carry the original mods' `manifest.json`,
+  `meta.json`, `mod.card`, readme or changelog. Those files held upstream
+  `github` links, and the pack ships code, art and licences, nothing else.
+- The pack manifest has never had a `github` field, so the launcher has nothing
+  to check or follow.
+
 ## 1.0.3
 
 Documentation only.
