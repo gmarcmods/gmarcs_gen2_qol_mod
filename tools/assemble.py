@@ -206,6 +206,14 @@ def build(dest: Path, config: dict, check_only: bool) -> list[str]:
     manifest_path = ROOT / "manifest.json"
     with manifest_path.open(encoding="utf-8") as handle:
         manifest = json.load(handle)
+    if manifest.get("id") != product_id:
+        raise SystemExit(
+            f"manifest id {manifest.get('id')!r} does not match sources.json "
+            f"product id {product_id!r}")
+    if manifest.get("version") != product.get("version"):
+        raise SystemExit(
+            f"manifest version {manifest.get('version')!r} does not match "
+            f"sources.json version {product.get('version')!r}; bump both")
 
     features_out = []
     for feature in config["features"]:
