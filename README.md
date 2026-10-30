@@ -5,7 +5,7 @@ for Gold, Silver and Crystal.
 
 ## Features
 
-- **Unique Menu Icons** — party and menu icons for all 251 Pokémon.
+- **Unique Menu Icons** — party and menu icons for all 251 Pokémon, in full colour by default.
 - **Touch Tools** — on-screen speed, save, load, colour, zoom and voxel buttons.
 - **Run Mode** — hold or toggle B to run.
 - **Quality of Life** — in-game time from the device clock.

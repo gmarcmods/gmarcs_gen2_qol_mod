@@ -293,7 +293,7 @@ local MODES = {
   { id = "gbc_red",       label = "GBC RED (Gen 2 style, all mons)",   folder = "assets/icon_gbc_red" },
   { id = "unique_colors", label = "UNIQUE COLORS (real per-species)", folder = "assets/icon_color" },
 }
-local DEFAULT_MODE = "original"
+local DEFAULT_MODE = "unique_colors"
 
 local function findMode(id)
   for _, m in ipairs(MODES) do

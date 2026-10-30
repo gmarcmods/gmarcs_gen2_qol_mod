@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.1.1"
+    "version": "1.2.0"
   },
   "generated_by": "tools/assemble.py",
   "features": [
@@ -10,6 +10,12 @@
       "name": "unique-menu-icons",
       "source": "gen1/unique-menu-icons",
       "version": "1.5.0",
+      "options": {
+        "icon_color_mode": {
+          "label": "ICON COLORS",
+          "help": "ORIGINAL uses the game palette, GBC RED is the Gen 2 red duotone, UNIQUE COLORS gives every Pok\u00e9mon its own colours."
+        }
+      },
       "priority": 0,
       "commit": "c9621f5c88bd",
       "digest": "4e1252e56c9a5463e9e66432343949c615bce9f2e56a85b97d4a1874d8ad552f"
@@ -18,6 +24,7 @@
       "name": "touch-tools",
       "source": "shared/touch-tools",
       "version": "1.2.2",
+      "options": null,
       "priority": 30,
       "commit": "b08d3bd4629e",
       "digest": "f661114bd1dabab76bd9e78cc61efd79ea2d4eb8c8b1f646192c1032c0494339"
@@ -26,6 +33,20 @@
       "name": "run-mode",
       "source": "gen2/run-mode",
       "version": "1.0.1",
+      "options": {
+        "enabled": {
+          "label": "RUN",
+          "help": "Run on the overworld instead of walking."
+        },
+        "mode": {
+          "label": "RUN MODE",
+          "help": "Hold B, or toggle it on and off."
+        },
+        "speed": {
+          "label": "RUN SPEED",
+          "help": "How fast running is."
+        }
+      },
       "priority": 40,
       "commit": "6b824f39574d",
       "digest": "7514b69ec0d91cfb00c7e125dff5c10b9f36df98ef02873f11f4c4aaf259219f"
@@ -34,6 +55,7 @@
       "name": "quality-of-life",
       "source": "shared/quality-of-life",
       "version": "1.3.3",
+      "options": null,
       "priority": 90,
       "commit": "bacaa365df1a",
       "digest": "167957b0db3e94456166eefb6f29abbbafa0e8788753276e032a04710eb039ea"
@@ -42,6 +64,56 @@
       "name": "gen3-box",
       "source": "gen1/gen3-box",
       "version": "1.27.4",
+      "options": {
+        "access": {
+          "label": "OPEN BOXES FROM",
+          "help": "Start menu, the Pok\u00e9mon Center PC, or both."
+        },
+        "heal": {
+          "label": "HEAL IN BOX",
+          "help": "A Pok\u00e9mon taken out of a box is healed."
+        },
+        "touch": {
+          "label": "TOUCH CONTROLS",
+          "help": "Drag and tap the box with the touchscreen."
+        },
+        "anim": {
+          "label": "BOX ANIMATIONS",
+          "help": "Animate the Pok\u00e9mon in the grid: all, one at a time, or off."
+        },
+        "animate": {
+          "label": "ANIMATED WALLPAPER",
+          "help": "The wallpaper drifts instead of sitting still."
+        },
+        "slots": {
+          "label": "SLOT SHADING",
+          "help": "How opaque each slot is over the wallpaper."
+        },
+        "bands": {
+          "label": "HEADER BAND",
+          "help": "Opacity of the box title and footer bands."
+        },
+        "placeCry": {
+          "label": "CRY WHEN PLACED",
+          "help": "Play the cry when a Pok\u00e9mon is put down."
+        },
+        "owSprites": {
+          "label": "OVERWORLD SPRITES",
+          "help": "Use overworld sprites in the box; needs the Wilds of Kanto mod."
+        },
+        "peek": {
+          "label": "PEEK NEXT BOX",
+          "help": "Show the neighbouring boxes at the screen edge."
+        },
+        "fullscreen": {
+          "label": "FULL SCREEN",
+          "help": "Use the whole screen for the box."
+        },
+        "wrap": {
+          "label": "CURSOR WRAP",
+          "help": "Moving past an edge wraps to the opposite side."
+        }
+      },
       "priority": 100,
       "commit": "8a55ab66e1a2",
       "digest": "ae572ee7ef6035a3986b37fda4928e43895dca247489e9eb34b046237f5dba22"
@@ -50,6 +122,7 @@
       "name": "useful-bag",
       "source": "gen2/useful-bag",
       "version": "2.0.4",
+      "options": null,
       "priority": 100,
       "commit": "203e40557888",
       "digest": "f00ce500f19036d9a060ef6cfc93781e904e77ec7fedac5ead9c6996e148826e"
@@ -58,6 +131,7 @@
       "name": "reusable-machines",
       "source": "gen2/reusable-machines",
       "version": "1.0.2",
+      "options": null,
       "priority": 130,
       "commit": "ad7a9e7816f9",
       "digest": "31db78e5da8e4dee69ae41764032a54841d5af7f71ce8a76d5b213ea695dce7c"
@@ -66,6 +140,16 @@
       "name": "trade-evolutions",
       "source": "gen2/trade-evolutions",
       "version": "1.0.0",
+      "options": {
+        "trade_level": {
+          "label": "TRADE EVO LEVEL",
+          "help": "Kadabra, Machoke, Graveler and Haunter evolve at this level."
+        },
+        "item_level": {
+          "label": "ITEM EVO LEVEL",
+          "help": "Level needed to evolve holding King's Rock, Metal Coat, Dragon Scale or Up-Grade."
+        }
+      },
       "priority": 140,
       "commit": "547e9c4f7336",
       "digest": "335c3a6051ee8e000fe9adeebc6d57d1049661d31a095d9392d0416e58626018"
@@ -74,6 +158,7 @@
       "name": "happiness",
       "source": "gen2/happiness",
       "version": "1.0.1",
+      "options": null,
       "priority": 150,
       "commit": "1ace5f1b46d3",
       "digest": "4e7288ac14319fe6fbf117991118e46abd75d9c4ff3af33c5d71ac99047fcf6e"
@@ -82,6 +167,7 @@
       "name": "moveset-plus",
       "source": "gen2/moveset-plus",
       "version": "1.0.2",
+      "options": null,
       "priority": 250,
       "commit": "bf3aec7f6f46",
       "digest": "39dab77f590b82950126547c7a2acfaad0a9f9cec0ba3def76fa9ffd004fe0c8"
@@ -90,6 +176,7 @@
       "name": "move-relearn",
       "source": "gen1/move-relearn",
       "version": "1.7.0",
+      "options": null,
       "priority": 260,
       "commit": "ca5ff91be2ee",
       "digest": "02bc8f1d40014fdfecc97c1939131faf21d6757002e7cbae149ff433e065496f"
@@ -98,6 +185,7 @@
       "name": "widescreen-menus",
       "source": "gen2/widescreen-menus",
       "version": "1.1.2",
+      "options": null,
       "priority": 300,
       "commit": "d6021f2695c5",
       "digest": "a45deeffcae365fb690b72c6e8d3eaa5664ad711ecc6e421ec96bf73093d9036"
@@ -106,6 +194,7 @@
       "name": "hm-anywhere",
       "source": "gen2/hm-anywhere",
       "version": "1.1.2",
+      "options": null,
       "priority": 610,
       "commit": "24f92edaf819",
       "digest": "fa94166ee72cecb7d8c2de27b2203702532ed7b6065e20fc9f51e6554efb6ead"

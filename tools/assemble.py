@@ -112,7 +112,29 @@ def git_commit(source: Path) -> str | None:
 
 
 def lua_string(value: str) -> str:
-    return json.dumps(value)
+    """A Lua short string. JSON's \\u escapes are not Lua, so escape by hand."""
+    out = value.replace(chr(92), chr(92) + chr(92))
+    out = out.replace('"', chr(92) + '"')
+    out = out.replace(chr(10), chr(92) + "n")
+    out = out.replace(chr(13), chr(92) + "r")
+    out = out.replace(chr(9), chr(92) + "t")
+    return '"' + out + '"'
+
+
+def lua_options(overrides: dict | None) -> str:
+    """Render per-row label/help overrides as a Lua table literal."""
+    if not overrides:
+        return "nil"
+    parts = []
+    for key in sorted(overrides):
+        spec = overrides[key]
+        fields = []
+        if spec.get("label"):
+            fields.append("label=" + lua_string(spec["label"]))
+        if spec.get("help"):
+            fields.append("help=" + lua_string(spec["help"]))
+        parts.append("[%s]={%s}" % (lua_string(key), ",".join(fields)))
+    return "{" + ",".join(parts) + "}"
 
 
 def render_main(config: dict, manifest: dict, features: list[dict]) -> str:
@@ -120,11 +142,12 @@ def render_main(config: dict, manifest: dict, features: list[dict]) -> str:
     rows = []
     for feature in features:
         rows.append(
-            "  { name = %s, source = %s, version = %s },"
+            "  { name = %s, source = %s, version = %s, options = %s },"
             % (
                 lua_string(feature["name"]),
                 lua_string(feature["source"]),
                 lua_string(feature["version"]),
+                lua_options(feature.get("options")),
             )
         )
     table = "\n".join(rows)
@@ -180,6 +203,11 @@ local function featureApi(mod, feature, combined)
         local copy = {{}}
         for key, value in pairs(row) do copy[key] = value end
         copy.key = prefixed(row.key)
+        local override = feature.options and feature.options[row.key]
+        if override then
+          if override.label then copy.label = override.label end
+          if override.help then copy.help = override.help end
+        end
         combined[#combined + 1] = copy
       end
       return mod.options:define(combined)
@@ -284,6 +312,7 @@ def build(dest: Path, config: dict, sources_root: Path) -> list[str]:
             "name": feature["name"],
             "source": feature["source"],
             "version": version,
+            "options": feature.get("option_labels"),
             "priority": feature.get("priority"),
             "commit": git_commit(source),
             "digest": source_digest(source, files),

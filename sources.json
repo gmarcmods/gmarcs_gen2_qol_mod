@@ -2,14 +2,27 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.1.1"
+    "version": "1.2.0"
   },
   "features": [
     {
       "name": "unique-menu-icons",
       "priority": 0,
       "notes": "gen1+gen2 source; ships Gen 2 party/menu icons",
-      "source": "gen1/unique-menu-icons"
+      "source": "gen1/unique-menu-icons",
+      "patches": [
+        {
+          "file": "main.lua",
+          "find": "local DEFAULT_MODE = \"original\"",
+          "replace": "local DEFAULT_MODE = \"unique_colors\""
+        }
+      ],
+      "option_labels": {
+        "icon_color_mode": {
+          "label": "ICON COLORS",
+          "help": "ORIGINAL uses the game palette, GBC RED is the Gen 2 red duotone, UNIQUE COLORS gives every Pok\u00e9mon its own colours."
+        }
+      }
     },
     {
       "name": "touch-tools",
@@ -20,7 +33,21 @@
     {
       "name": "run-mode",
       "priority": 40,
-      "source": "gen2/run-mode"
+      "source": "gen2/run-mode",
+      "option_labels": {
+        "enabled": {
+          "label": "RUN",
+          "help": "Run on the overworld instead of walking."
+        },
+        "mode": {
+          "label": "RUN MODE",
+          "help": "Hold B, or toggle it on and off."
+        },
+        "speed": {
+          "label": "RUN SPEED",
+          "help": "How fast running is."
+        }
+      }
     },
     {
       "name": "quality-of-life",
@@ -32,7 +59,57 @@
       "name": "gen3-box",
       "priority": 100,
       "notes": "gen1+gen2+gen3 source; Ruby/Sapphire-style PC boxes",
-      "source": "gen1/gen3-box"
+      "source": "gen1/gen3-box",
+      "option_labels": {
+        "access": {
+          "label": "OPEN BOXES FROM",
+          "help": "Start menu, the Pok\u00e9mon Center PC, or both."
+        },
+        "heal": {
+          "label": "HEAL IN BOX",
+          "help": "A Pok\u00e9mon taken out of a box is healed."
+        },
+        "touch": {
+          "label": "TOUCH CONTROLS",
+          "help": "Drag and tap the box with the touchscreen."
+        },
+        "anim": {
+          "label": "BOX ANIMATIONS",
+          "help": "Animate the Pok\u00e9mon in the grid: all, one at a time, or off."
+        },
+        "animate": {
+          "label": "ANIMATED WALLPAPER",
+          "help": "The wallpaper drifts instead of sitting still."
+        },
+        "slots": {
+          "label": "SLOT SHADING",
+          "help": "How opaque each slot is over the wallpaper."
+        },
+        "bands": {
+          "label": "HEADER BAND",
+          "help": "Opacity of the box title and footer bands."
+        },
+        "placeCry": {
+          "label": "CRY WHEN PLACED",
+          "help": "Play the cry when a Pok\u00e9mon is put down."
+        },
+        "owSprites": {
+          "label": "OVERWORLD SPRITES",
+          "help": "Use overworld sprites in the box; needs the Wilds of Kanto mod."
+        },
+        "peek": {
+          "label": "PEEK NEXT BOX",
+          "help": "Show the neighbouring boxes at the screen edge."
+        },
+        "fullscreen": {
+          "label": "FULL SCREEN",
+          "help": "Use the whole screen for the box."
+        },
+        "wrap": {
+          "label": "CURSOR WRAP",
+          "help": "Moving past an edge wraps to the opposite side."
+        }
+      }
     },
     {
       "name": "useful-bag",
@@ -50,7 +127,17 @@
       "exclude": [
         "dist/xdg"
       ],
-      "source": "gen2/trade-evolutions"
+      "source": "gen2/trade-evolutions",
+      "option_labels": {
+        "trade_level": {
+          "label": "TRADE EVO LEVEL",
+          "help": "Kadabra, Machoke, Graveler and Haunter evolve at this level."
+        },
+        "item_level": {
+          "label": "ITEM EVO LEVEL",
+          "help": "Level needed to evolve holding King's Rock, Metal Coat, Dragon Scale or Up-Grade."
+        }
+      }
     },
     {
       "name": "happiness",

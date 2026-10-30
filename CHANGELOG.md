@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.0
+
+- **Menu icons are colourful by default.** The icon colour mode now defaults to
+  UNIQUE COLORS instead of ORIGINAL; ORIGINAL and GBC RED are still there.
+- Every option is in the pack's list with a name that says what it does, and a
+  one-line explanation: box access, healing, touch, animations, wallpaper,
+  slot shading, header band, cries, overworld sprites, peeking, cursor wrap,
+  run mode and speed, trade-evolution levels, bag menus, widescreen and the
+  device clock.
+
 ## 1.1.1
 
 - **Menu icons, and every other feature's art, now load.** The per-feature
