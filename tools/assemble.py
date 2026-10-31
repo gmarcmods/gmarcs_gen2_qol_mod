@@ -249,7 +249,9 @@ return function(mod)
     local install = chunk(proxy)
     if type(install) == "function" then install(proxy) end
     for key, value in pairs(state.exports) do
-      if merged[key] ~= nil then
+      -- The same shared helper (sky-common) exports the same function from
+      -- two features; that is not a collision worth reporting.
+      if merged[key] ~= nil and merged[key] ~= value then
         mod.log:warn("export %q from %s replaces an earlier one",
           tostring(key), feature.name)
       end

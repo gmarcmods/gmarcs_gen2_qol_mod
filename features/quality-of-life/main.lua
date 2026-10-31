@@ -126,7 +126,29 @@ return function(mod)
     { key = "strength_prompt", label = "STRENGTH PROMPT", type = "toggle", default = true },
     { key = "gen2_pack", label = "GEN II PACK", type = "toggle", default = true },
     { key = "gen2_exp_bar", label = "EXP BAR", type = "toggle", default = true },
+    { key = "caught_icon", label = "CAUGHT ICON", type = "toggle", default = true,
+      help = "Show a ball next to a wild Pokémon whose species you already own." },
+    { key = "place_tag", label = "PLACE NAMES", type = "toggle", default = true,
+      help = "Show the town or route name when you walk into it." },
   })
+
+  -- Route and town names on entry (Gen 1 has no map sign of its own).
+  do
+    local source = mod:read("place_tag.lua")
+    if source then
+      local chunk = assert(load(source, "@" .. mod.path .. "/place_tag.lua"))
+      chunk()(mod)
+    end
+  end
+
+  -- Gen II marks a wild Pokémon already in the Pokédex (CheckCaughtMon). The
+  -- Gen 1 battle state already knows the species is owned and then asks this
+  -- hook, but nothing answered it, so the marker never drew. Answer here.
+  mod.hooks:wrap("battle.caught_marker_visible", function(next_, battle)
+    local generation = require("src.core.GameVersion").generation()
+    if generation ~= 1 then return next_(battle) end
+    return mod.options:get("caught_icon") ~= false
+  end)
 
   mod.content.screens:register("BagMenu", {
     new = function(activeGame, opts)

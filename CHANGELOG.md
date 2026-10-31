@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1
+
+- Quality of Life 1.4.0 vendored (caught icon and place names). Both features
+  are Gen 1 only, so Gen 2 behaviour is unchanged.
+
 ## 1.2.0
 
 - **Menu icons are colourful by default.** The icon colour mode now defaults to

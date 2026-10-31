@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.2.0"
+    "version": "1.2.1"
   },
   "generated_by": "tools/assemble.py",
   "features": [
@@ -17,7 +17,7 @@
         }
       },
       "priority": 0,
-      "commit": "c9621f5c88bd",
+      "commit": "b065d77fafb7",
       "digest": "4e1252e56c9a5463e9e66432343949c615bce9f2e56a85b97d4a1874d8ad552f"
     },
     {
@@ -54,11 +54,11 @@
     {
       "name": "quality-of-life",
       "source": "shared/quality-of-life",
-      "version": "1.3.3",
+      "version": "1.4.0",
       "options": null,
       "priority": 90,
-      "commit": "bacaa365df1a",
-      "digest": "167957b0db3e94456166eefb6f29abbbafa0e8788753276e032a04710eb039ea"
+      "commit": "82342ab58cb2",
+      "digest": "f1f4700d0d0c6a73dd9fc2488e5f430b69fb6854609bd0ab73a176b97149891f"
     },
     {
       "name": "gen3-box",
@@ -178,7 +178,7 @@
       "version": "1.7.0",
       "options": null,
       "priority": 260,
-      "commit": "ca5ff91be2ee",
+      "commit": "40769257a69f",
       "digest": "02bc8f1d40014fdfecc97c1939131faf21d6757002e7cbae149ff433e065496f"
     },
     {
