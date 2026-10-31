@@ -18,6 +18,7 @@ for Gold, Silver and Crystal.
 - **Widescreen Menus** — menus that use the whole screen, in any orientation.
 - **HM Anywhere** — use owned HMs and field TMs without teaching them.
 - **Move Relearn** — relearn any move a Pokémon could have learned.
+- **All Encounters** — routes carry every species Gold, Silver or Crystal has there; choose one game's lists or all three.
 
 Everything is optional; each feature has its own toggle in OPTIONS.
 

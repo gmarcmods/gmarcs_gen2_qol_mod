@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.2.1"
+    "version": "1.3.0"
   },
   "generated_by": "tools/assemble.py",
   "features": [
@@ -162,6 +162,20 @@
       "priority": 150,
       "commit": "1ace5f1b46d3",
       "digest": "4e7288ac14319fe6fbf117991118e46abd75d9c4ff3af33c5d71ac99047fcf6e"
+    },
+    {
+      "name": "all-encounters",
+      "source": "gen2/all-encounters",
+      "version": "1.0.0",
+      "options": {
+        "source": {
+          "label": "ENCOUNTERS FROM",
+          "help": "Which games' wild lists the routes use: ALL merges Gold, Silver and Crystal."
+        }
+      },
+      "priority": 220,
+      "commit": null,
+      "digest": "4b457a0461b35c3d49eb1aa861bc67a5cacedfd19cfacf7e250d027ec2bd5d92"
     },
     {
       "name": "moveset-plus",

@@ -2,7 +2,7 @@
   "product": {
     "id": "gmarcs_gen2_qol_mod",
     "name": "Gmarc's Gen 2 QoL Mod",
-    "version": "1.2.1"
+    "version": "1.3.0"
   },
   "features": [
     {
@@ -143,6 +143,17 @@
       "name": "happiness",
       "priority": 150,
       "source": "gen2/happiness"
+    },
+    {
+      "name": "all-encounters",
+      "source": "gen2/all-encounters",
+      "priority": 220,
+      "option_labels": {
+        "source": {
+          "label": "ENCOUNTERS FROM",
+          "help": "Which games' wild lists the routes use: ALL merges Gold, Silver and Crystal."
+        }
+      }
     },
     {
       "name": "moveset-plus",

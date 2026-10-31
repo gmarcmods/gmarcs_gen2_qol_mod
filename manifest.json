@@ -1,7 +1,7 @@
 {
   "id": "gmarcs_gen2_qol_mod",
   "name": "Gmarc's Gen 2 QoL Mod",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "api": 2,
   "entry": "main.lua",
   "profile": "content",
@@ -20,6 +20,7 @@
     "TRADE_EVOLUTIONS_GEN2",
     "WIDESCREEN_MENUS_GEN2",
     "gen3_box",
+    "gmarcs_gen2_all_encounters",
     "hm_anywhere_gen2",
     "quality_of_life",
     "relearn_moves",
@@ -29,7 +30,7 @@
     "useful_bag_gen2"
   ],
   "affects_link": true,
-  "description": "One install for Gold/Silver/Crystal: run mode, useful bag, reusable machines, trade evolutions, happiness, moveset plus, widescreen menus, HM anywhere, touch tools, unique menu icons the QoL device clock and Move Relearn.",
+  "description": "One install for Gold/Silver/Crystal: run mode, useful bag, reusable machines, trade evolutions, happiness, moveset plus, widescreen menus, HM anywhere, touch tools, unique menu icons the QoL device clock, Move Relearn and every route's encounters from all three games.",
   "games": [
     "gen2"
   ],

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.0
+
+- **All Encounters.** Routes now carry every species Gold, Silver or Crystal
+  puts there, not just the running game's. A new option, `ENCOUNTERS FROM`,
+  picks ALL (the three merged) or one game's lists. Vanilla still rolls first,
+  so levels, rates, repels, swarms and roamers are the running game's; only the
+  species changes, and scripted encounters and the Bug-Catching Contest keep
+  their own tables. Rarity follows the cartridge's slot order, with a species
+  keeping its best slot across the chosen games.
+
 ## 1.2.1
 
 - Quality of Life 1.4.0 vendored (caught icon and place names). Both features
